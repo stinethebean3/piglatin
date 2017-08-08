@@ -6,8 +6,11 @@ var piglatin = function(text) {
     if ("aeiou".includes(firstLetter)) { 
       // firstLetter is vowel
     } else {
-      letters.shift();
-      letters.push(firstLetter);
+      letters.shift(); // remove first letter from array
+      letters.push(firstLetter.toLowerCase()); // adding saved firstLetter to end of array
+      if (firstLetter == firstLetter.toUpperCase()) {
+        letters[0] = letters[0].toUpperCase();
+      }
       var newWord = letters.join('') + 'ay';
       words[index] = newWord;
       console.log(words);
