@@ -1,35 +1,16 @@
 var piglatin = function(text) {
-  var words = text.split(" ");
-  words.forEach(function(word,index) {
-    var letters = word.split("");
-    var firstLetter = letters[0];
-    if ("aeiou".includes(firstLetter)) { 
-      // firstLetter is vowel
-    } else {
-      letters.shift(); // remove first letter from array
-      letters.push(firstLetter.toLowerCase()); // adding saved firstLetter to end of array
-      if (firstLetter == firstLetter.toUpperCase()) {
-        letters[0] = letters[0].toUpperCase();
+  return text.replace(/[a-z]+/gi, function(word){     // regular expression to extract only words
+    var letters = word.split("");                     // break each word into array of letters
+    var firstLetter = letters[0];                     // save firstLetter for later
+    if (!"aeiou".includes(firstLetter)) {             // if firstLetter is not a vowel then
+      letters.shift();                                // remove first letter from array
+      letters.push(firstLetter.toLowerCase());        // add saved firstLetter to end of array
+      if (firstLetter == firstLetter.toUpperCase()) { // if firstLetter was Uppercase then
+        letters[0] = letters[0].toUpperCase();        // make new firstLetter Uppercase
       }
-      var newWord = letters.join('') + 'ay';
-      words[index] = newWord;
-      console.log(words);
-      // firstLetter is consonant
     }
-      
-
+    return letters.join('') + 'ay';                   // add ay to end of each word and return
   });
-  return words.join(" ");
-
-
-
-
-
-
-
-
-
-
 };
 
 module.exports.piglatin = piglatin;

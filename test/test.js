@@ -14,7 +14,7 @@ describe('piglatin', function() {
     assert.equal(piglatin("Hello, world!"),"Ellohay, orldway!");
   });
 
-  it('should return "ilesmay alwaysay" when provided "smile always"', function() {
-    assert.equal(piglatin("smile always"),"ilesmay alwaysay");
+  it('should return "milesay alwaysay" when provided "smile always"', function() {
+    assert.equal(piglatin("smile always"),"milesay alwaysay");
   });
 });
